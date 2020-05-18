@@ -6,27 +6,7 @@ import (
 	"testing"
 )
 
-func TestCidrHostCount(t *testing.T) {
-	type args struct {
-		cidr int
-	}
-	tests := []struct {
-		name string
-		args args
-		want int
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := CidrHostCount(tt.args.cidr); got != tt.want {
-				t.Errorf("CidrHostCount() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestIntToIp(t *testing.T) {
+func TestIntToIPv4(t *testing.T) {
 	type args struct {
 		nn uint32
 	}
@@ -39,14 +19,14 @@ func TestIntToIp(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := IntToIp(tt.args.nn); !reflect.DeepEqual(got, tt.want) {
+			if got := IntToIPv4(tt.args.nn); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("IntToIp() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestIpToInt(t *testing.T) {
+func TestIPv4ToInt(t *testing.T) {
 	type args struct {
 		ip net.IP
 	}
@@ -59,7 +39,7 @@ func TestIpToInt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := IpToInt(tt.args.ip); got != tt.want {
+			if got := IPv4ToInt(tt.args.ip); got != tt.want {
 				t.Errorf("IpToInt() = %v, want %v", got, tt.want)
 			}
 		})

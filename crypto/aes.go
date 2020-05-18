@@ -24,6 +24,50 @@ func EncAES(data, key []byte) ([]byte, error) {
 	return cbcEncrypt(data, key)
 }
 
+// EncAES256 returns data encrypted with AES-128
+func EncAES256(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 32)
+}
+
+// EncAES192 returns data encrypted with AES-192
+func EncAES192(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 24)
+}
+
+// EncAES128 returns data encrypted with AES-256
+func EncAES128(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 16)
+}
+
+// DecAES256 returns data decrypted with AES-128
+func DecAES256(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 32)
+}
+
+// DecAES192 returns data decrypted with AES-192
+func DecAES192(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 24)
+}
+
+// DecAES128 returns data decrypted with AES-256
+func DecAES128(data, key []byte) ([]byte, error) {
+	return encAESWithKeyLen(data, key, 16)
+}
+
+func encAESWithKeyLen(data, key []byte, keyLen int) ([]byte, error) {
+	if len(key) != keyLen {
+		return nil, aes.KeySizeError(keyLen)
+	}
+	return cbcEncrypt(data, key)
+}
+
+func decAESWithKeyLen(data, key []byte, keyLen int) ([]byte, error) {
+	if len(key) != keyLen {
+		return nil, aes.KeySizeError(keyLen)
+	}
+	return cbcDecrypt(data, key)
+}
+
 func pkcsPadding(data []byte, blockSize int) []byte {
 	paddingLen := blockSize - len(data)%blockSize
 	padding := bytes.Repeat([]byte{byte(paddingLen)}, paddingLen)

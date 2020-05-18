@@ -5,7 +5,8 @@ import (
 	"net"
 )
 
-func IpToInt(ip net.IP) uint32 {
+// IPv4ToInt converts IPv4 to int
+func IPv4ToInt(ip net.IP) uint32 {
 	if ip == nil {
 		return 0
 	}
@@ -15,17 +16,9 @@ func IpToInt(ip net.IP) uint32 {
 	return binary.BigEndian.Uint32(ip)
 }
 
-func IntToIp(nn uint32) net.IP {
+// IntToIPv4 converts int to IPv4
+func IntToIPv4(nn uint32) net.IP {
 	ip := make(net.IP, 4)
 	binary.BigEndian.PutUint32(ip, nn)
 	return ip
-}
-
-func CidrHostCount(cidr int) int {
-	if cidr == 32 {
-		return 1
-	} else if cidr == 31 {
-		return 2
-	}
-	return 2 << (31 - uint(cidr))
 }
