@@ -1,4 +1,4 @@
-package compress
+package goutils
 
 import (
 	"bytes"

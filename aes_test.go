@@ -1,4 +1,4 @@
-package crypto
+package goutils
 
 import (
 	"testing"

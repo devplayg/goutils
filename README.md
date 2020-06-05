@@ -9,12 +9,12 @@ Something that enriches the Go
 
 ```go
 EncAES(data, key []byte) ([]byte, error) 
-DecAES128(data, key []byte) ([]byte, error) 
-DecAES192(data, key []byte) ([]byte, error) 
-DecAES256(data, key []byte) ([]byte, error) 
 EncAES128(data, key []byte) ([]byte, error) 
 EncAES192(data, key []byte) ([]byte, error) 
 EncAES256(data, key []byte) ([]byte, error) 
+DecAES128(data, key []byte) ([]byte, error) 
+DecAES192(data, key []byte) ([]byte, error) 
+DecAES256(data, key []byte) ([]byte, error) 
 ```
 
 ### Compress

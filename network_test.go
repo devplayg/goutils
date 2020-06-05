@@ -1,4 +1,4 @@
-package network
+package goutils
 
 import (
 	"net"
