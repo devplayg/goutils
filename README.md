@@ -8,13 +8,17 @@ Something that enriches the Go
 ### Crypto
 
 ```go
-EncAES(data, key []byte) ([]byte, error) 
-EncAES128(data, key []byte) ([]byte, error) 
-EncAES192(data, key []byte) ([]byte, error) 
-EncAES256(data, key []byte) ([]byte, error) 
-DecAES128(data, key []byte) ([]byte, error) 
-DecAES192(data, key []byte) ([]byte, error) 
-DecAES256(data, key []byte) ([]byte, error) 
+EncAesCbc(data, key []byte) ([]byte, error) 
+DecAesCbc(data, key []byte) ([]byte, error) 
+EncAes128Cbc(data, key []byte) ([]byte, error) 
+EncAes192Cbc(data, key []byte) ([]byte, error) 
+EncAes256Cbc(data, key []byte) ([]byte, error) 
+DecAes128Cbc(data, key []byte) ([]byte, error) 
+DecAes192Cbc(data, key []byte) ([]byte, error) 
+DecAes256Cbc(data, key []byte) ([]byte, error)  
+
+EncAesGcm(data, key, nonce []byte) ([]byte, error)
+DecAesGcm(data, key, nonce []byte) ([]byte, error)
 ```
 
 ### Compress
